@@ -6,6 +6,7 @@ import Project from "./pages/Project/Project";
 import Projects from "./pages/Projects/Projects";
 import Contacts from "./pages/Contacts/Contacts";
 import ScrollToTop from "./utils/ScrollToTop";
+import ButtonScrollTop from "./components/ButtunScrollTop/ButtonScrollTop";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route path="/projects/:id" element={<Project />} />
               <Route path="/contacts" element={<Contacts />} />
             </Routes>
+            <ButtonScrollTop/>
           </div>
           <Footer />
         </BrowserRouter>

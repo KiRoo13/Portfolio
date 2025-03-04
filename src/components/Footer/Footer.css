@@ -1,7 +1,7 @@
 .footer {
    width: 100%;
-   border-top: 1px solid wheat;
-   background-color: white;
+   border-top: 1px solid var(--accentColor);
+   background-color: var(--white);
 }
 .footer-content {
    height: 50px;

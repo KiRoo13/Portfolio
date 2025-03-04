@@ -20,11 +20,10 @@ export function ProjectsProvider({ children }) {
 
 function reducerProjects(state, action) {
   switch (action.type) {
-    case 'Test':
-      console.log(state, action)
-      return state
-    default:
-      break;
+    case 'filterSelect':
+            
+      return state.map((p) => p)
+                  .filter((p) => p.category === action.category)
   }
 }
 

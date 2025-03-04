@@ -1,10 +1,13 @@
+import { useState } from "react";
 import FilterProject from "../../components/FilterProject/FilterProject";
 import ProjectItem from "../../components/ProjectItem/ProjectItem";
 import { useProjects } from "../../context/projectsContext";
-import './Projects.css'
+import "./Projects.css";
 
 function Projects() {
-  const projects = useProjects()
+  const projects = useProjects();
+
+  const [selectValue, setSelectValue] = useState("React");
 
   return (
     <>
@@ -12,11 +15,16 @@ function Projects() {
         <div className="conteiner">
           <div className="projects-content">
             <h1 className="projects-title">PROJECTS</h1>
-            <FilterProject/>
+            <FilterProject selectValue={selectValue} setSelectValue={setSelectValue}/>
             <div className="wrapper-projects">
-              {projects.map((project, index) => (
-                <ProjectItem key={project.id} project={project} index={index} />
-              ))}
+              {projects
+                .filter((project) => project.category === selectValue)
+                .map((project) => (
+                  <ProjectItem
+                    key={project.id}
+                    project={project}
+                  />
+                ))}
             </div>
           </div>
         </div>

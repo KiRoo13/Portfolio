@@ -6,12 +6,14 @@ import { useProjects } from "../../context/projectsContext";
 function Project() {
   const { id } = useParams();
   const projects = useProjects();
+  const [ project ]  = projects.filter((project) => project.id === Number(id))
+
 
   return (
     <section className="section">
       <div className="conteiner">
         <div className="project-content">
-            <ProjectInfo project={projects[id]}/>
+            <ProjectInfo project={project}/>
         </div>
       </div>
     </section>

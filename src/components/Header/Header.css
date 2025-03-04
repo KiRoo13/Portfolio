@@ -1,7 +1,7 @@
 .header {
    width: 100%;
-   background-color: white;
-   border-bottom: 1px solid wheat;
+   background-color: var(--white);
+   border-bottom: 1px solid var(--accentColor);
 }
 .header-content {
    width: 100%;
@@ -18,12 +18,12 @@
 }
 .active-link {
    text-decoration: underline;
-   color: black;
+   color: var(--accentColor);
    font-weight: 500;
 }
 
 .link {
-   color: black;
+   color: var(--black);
    text-decoration: none;
 }
 

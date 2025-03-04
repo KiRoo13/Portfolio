@@ -1,3 +1,4 @@
+import Animation from '../../components/Animation/Animation';
 import './Home.css'
 
 function Home() {
@@ -15,7 +16,9 @@ function Home() {
             </ul>
           </div>
           <div className="about-mi-amin">
-            <div>AMIM</div>
+            <div>
+              <Animation/>
+            </div>
           </div>
         </div>
       </div>

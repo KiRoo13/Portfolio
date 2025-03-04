@@ -2,9 +2,10 @@ import { NavLink } from "react-router-dom";
 import './ProjectItem.css'
 
 
-function ProjectItem({project, index }) {
+function ProjectItem({ project }) {
+
   return (
-    <NavLink to={`/projects/${index}`}>
+    <NavLink to={`/projects/${project.id}`}>
       <div className="project-item">
         <div className="project-item__header">
           <img src={project.img} alt="#" />

@@ -4,9 +4,14 @@
    display: flex;
    overflow: hidden;
    flex-direction: column;
-   border: 1px solid gray;
+   border: 1px solid var(--accentColor);
    border-radius: 10px;
-   color: black;
+   color: var(--black);
+   transition: .4s;
+}
+.project-item:hover {
+   filter: drop-shadow(0 0 2em var(--accentColor));
+   transition: .4s;
 }
 .project-item__header img {
    width: 100%;
@@ -22,5 +27,5 @@
 }
 
 body[data-theme='dark'] .project-item {
-   color: white;
+   color: var(--white);
 }
