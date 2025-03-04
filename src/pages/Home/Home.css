@@ -7,7 +7,7 @@
 .about-mi, .about-mi-amin {
    width: 50%;
    height: 600px;
-   border: 1px solid goldenrod;
+   border: 1px solid var(--accentColor);
    border-radius: 20px;
 }
 .about-mi {
@@ -25,4 +25,5 @@
    display: flex;
    justify-items: center;
    align-items: center;
+   overflow: hidden;
 }

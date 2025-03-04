@@ -1,0 +1,14 @@
+.button-top {
+   position: fixed;
+   right: 5%;
+   bottom: 5%;
+   color: var(--accentColor);
+   font-size: 40px;
+   background: transparent;
+   border: none;
+}
+
+.button-top:hover {
+   cursor: pointer;
+}
+

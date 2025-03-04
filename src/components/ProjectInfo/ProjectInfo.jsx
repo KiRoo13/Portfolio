@@ -1,6 +1,7 @@
 import "./ProjectInfo.css";
 
 function ProjectInfo({ project }) {
+
   return (
     <>
       <h2 className="project-title">{project.title}</h2>
