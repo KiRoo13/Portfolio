@@ -1,0 +1,12 @@
+.projects-title {
+   text-align: center;
+   margin-bottom: 20px;
+}
+
+.wrapper-projects {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   row-gap: 30px;
+}

@@ -1,0 +1,28 @@
+.home-content {
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   column-gap: 20px;
+}
+.about-mi, .about-mi-amin {
+   width: 50%;
+   height: 600px;
+   border: 1px solid goldenrod;
+   border-radius: 20px;
+}
+.about-mi {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.about-mi__subtitle {
+   text-align: center;
+}
+.about-mi__list {
+   align-self: flex-start;
+}
+.about-mi-amin {
+   display: flex;
+   justify-items: center;
+   align-items: center;
+}
