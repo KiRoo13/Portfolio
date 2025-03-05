@@ -2,12 +2,12 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
-import { ProjectsProvider } from "./context/projectsContext.jsx";
+import { ThemContextProvider } from "./context/ThemeContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ProjectsProvider>
+    <ThemContextProvider>
       <App />
-    </ProjectsProvider>
+    </ThemContextProvider>
   </StrictMode>
 );
