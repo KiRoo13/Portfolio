@@ -35,7 +35,7 @@
 
 
 #theme-toggle:checked + .toggle-label {
-   background: #4caf50;
+   background: var(--accentColor)
 }
 
 #theme-toggle:checked + .toggle-label:before {

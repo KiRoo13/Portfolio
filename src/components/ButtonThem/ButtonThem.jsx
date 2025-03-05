@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import "./ButtonThem.css";
-import { useLocalStorage } from "../../utils/useLocalStorage";
+import { useThemeContext } from "../../context/ThemeContext";
 
 function ButtonThem() {
 
-const [theme, setThem] = useLocalStorage('theme', 'light')
+const [theme, setThem] = useThemeContext()
 
 const toggleTheme = () => {
    setThem((prev)=> prev === 'light' ? 'dark' : 'light')

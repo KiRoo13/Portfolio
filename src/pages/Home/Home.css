@@ -1,15 +1,15 @@
 .home-content {
    display: flex;
    align-items: center;
-   justify-content: space-around;
-   column-gap: 20px;
+   justify-content: center;
 }
-.about-mi, .about-mi-amin {
+.about-mi{
    width: 50%;
    height: 600px;
    border: 1px solid var(--accentColor);
    border-radius: 20px;
 }
+
 .about-mi {
    display: flex;
    flex-direction: column;
@@ -21,9 +21,4 @@
 .about-mi__list {
    align-self: flex-start;
 }
-.about-mi-amin {
-   display: flex;
-   justify-items: center;
-   align-items: center;
-   overflow: hidden;
-}
+

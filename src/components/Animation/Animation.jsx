@@ -1,33 +1,37 @@
 import { useEffect } from "react";
 import { useRef } from "react";
+import { useThemeContext } from "../../context/ThemeContext";
+import "./Animation.css";
+
 
 function Animation() {
   const canvasRef = useRef(null);
   
+  const [theme, setThem] = useThemeContext()
+  
+
 
   useEffect(() => {
     let canvas = canvasRef.current;
 
-    let innerWidth = document.querySelector('.about-mi-amin').offsetWidth
-    let innerHeight = document.querySelector('.about-mi-amin').offsetHeight
+    let innerWidth = document.querySelector(".main").offsetWidth;
+    let innerHeight = document.querySelector(".main").offsetHeight;
 
     let ctx = canvas.getContext("2d"),
       w = (canvas.width = innerWidth),
-      h = (canvas.height = innerHeight),
-      particles = [],
-      properties = {
-        bgColore: "rgb(17 17 19 / 1)",
-        particleColor: "red",
+      h = (canvas.height = innerHeight);
+
+     const particles = [];
+     const properties = {
+        bgColore: theme === 'dark' ? "rgb(17 17 19 / 1)" : "rgb(255 255 255 / 1)",
+        particleColor: theme === 'dark' ? "red" : "goldenrod",
         particleRadius: 1.5,
-        particleCount: 35,
+        particleCount: 70,
         particleMaxVelocicy: 0.3,
         lineLenght: 100,
         particleLife: 1,
       };
 
-    window.onresize = function () {
-      (w = canvas.width = innerWidth), (h = canvas.height = innerHeight);
-    };
 
     class Particle {
       constructor() {
@@ -93,7 +97,7 @@ function Animation() {
           if (lenght < properties.lineLenght) {
             opacity = 1 - lenght / properties.lineLenght;
             ctx.lineWidth = "0,5";
-            ctx.strokeStyle = "rgba(255,0,0, " + opacity + ")";
+            ctx.strokeStyle = theme === 'dark' ? "rgba(255,0,0, " + opacity + ")" : "rgba(218,165,32, " + opacity + ")"
             ctx.beginPath();
             ctx.moveTo(x1, y1);
             ctx.lineTo(x2, y2);
@@ -120,14 +124,26 @@ function Animation() {
     }
 
     function init() {
+
       for (var i = 0; i < properties.particleCount; i++) {
         particles.push(new Particle());
       }
+
       loop();
     }
 
     init();
-  }, []);
+
+    window.onresize = function () {
+      (w = canvas.width = document.querySelector(".main").offsetWidth),
+        (h = canvas.height = document.querySelector(".main").offsetHeight);
+    };
+
+
+    return () => (window.onresize = false);
+
+  
+  }, [theme]);
 
   return <canvas className="canvas" ref={canvasRef}></canvas>;
 }

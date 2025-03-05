@@ -6,9 +6,13 @@ import Project from "./pages/Project/Project";
 import Projects from "./pages/Projects/Projects";
 import Contacts from "./pages/Contacts/Contacts";
 import ScrollToTop from "./utils/ScrollToTop";
+import Animation from "./components/Animation/Animation";
 import ButtonScrollTop from "./components/ButtunScrollTop/ButtonScrollTop";
 
+
+
 function App() {
+
   return (
     <>
       <div className="app">
@@ -16,6 +20,7 @@ function App() {
           <ScrollToTop />
           <Header />
           <div className="main">
+            <Animation/>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/projects" element={<Projects />} />

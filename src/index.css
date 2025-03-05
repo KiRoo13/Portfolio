@@ -24,6 +24,7 @@ body[data-theme='dark'] {
    flex-direction: column;
 }
 .main {
+   position: relative;
    flex-grow: 1;
 }
 .conteiner {
