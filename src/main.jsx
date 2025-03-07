@@ -5,9 +5,9 @@ import App from "./App.jsx";
 import { ThemContextProvider } from "./context/ThemeContext.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
+  // <StrictMode>
     <ThemContextProvider>
       <App />
     </ThemContextProvider>
-  </StrictMode>
+  // </StrictMode>
 );

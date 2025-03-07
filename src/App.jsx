@@ -8,10 +8,13 @@ import Contacts from "./pages/Contacts/Contacts";
 import ScrollToTop from "./utils/ScrollToTop";
 import Animation from "./components/Animation/Animation";
 import ButtonScrollTop from "./components/ButtunScrollTop/ButtonScrollTop";
+import useResizeObserver from "./utils/useResizeObserver";
 
 
 
 function App() {
+  const [ref, rect] = useResizeObserver();
+  console.log('APP', rect)
 
   return (
     <>
@@ -19,8 +22,8 @@ function App() {
         <BrowserRouter>
           <ScrollToTop />
           <Header />
-          <div className="main">
-            <Animation/>
+          <div ref={ref} className="main">
+            <Animation rootElem={ref} boundingRect={rect}/>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/projects" element={<Projects />} />

@@ -3,34 +3,42 @@ import { useRef } from "react";
 import { useThemeContext } from "../../context/ThemeContext";
 import "./Animation.css";
 
-
-function Animation() {
+function Animation({ rootElem, boundingRect}) {
   const canvasRef = useRef(null);
-  
-  const [theme, setThem] = useThemeContext()
-  
+  const [theme, setThem] = useThemeContext();
 
 
   useEffect(() => {
     let canvas = canvasRef.current;
 
-    let innerWidth = document.querySelector(".main").offsetWidth;
-    let innerHeight = document.querySelector(".main").offsetHeight;
+    const particles = [];
+    const properties = {
+      bgColore: theme === "dark" ? "rgb(17 17 19 / 1)" : "rgb(255 255 255 / 1)",
+      particleColor: theme === "dark" ? "red" : "goldenrod",
+      particleRadius: 1.5,
+      particleCount: 75,
+      particleMaxVelocicy: 0.3,
+      lineLenght: 100,
+      particleLife: 1,
+    };
+
+    let innerWidth;
+    let innerHeight;
+
+    if (rootElem.current) {
+      innerWidth = rootElem.current.offsetWidth;
+      innerHeight = rootElem.current.offsetHeight;
+    }
 
     let ctx = canvas.getContext("2d"),
       w = (canvas.width = innerWidth),
       h = (canvas.height = innerHeight);
 
-     const particles = [];
-     const properties = {
-        bgColore: theme === 'dark' ? "rgb(17 17 19 / 1)" : "rgb(255 255 255 / 1)",
-        particleColor: theme === 'dark' ? "red" : "goldenrod",
-        particleRadius: 1.5,
-        particleCount: 70,
-        particleMaxVelocicy: 0.3,
-        lineLenght: 100,
-        particleLife: 1,
-      };
+    if (boundingRect) {
+      (w = canvas.width = rootElem.current.offsetWidth),
+      (h = canvas.height = rootElem.current.offsetHeight);
+    }
+
 
 
     class Particle {
@@ -97,7 +105,10 @@ function Animation() {
           if (lenght < properties.lineLenght) {
             opacity = 1 - lenght / properties.lineLenght;
             ctx.lineWidth = "0,5";
-            ctx.strokeStyle = theme === 'dark' ? "rgba(255,0,0, " + opacity + ")" : "rgba(218,165,32, " + opacity + ")"
+            ctx.strokeStyle =
+              theme === "dark"
+                ? "rgba(255,0,0, " + opacity + ")"
+                : "rgba(218,165,32, " + opacity + ")";
             ctx.beginPath();
             ctx.moveTo(x1, y1);
             ctx.lineTo(x2, y2);
@@ -124,7 +135,6 @@ function Animation() {
     }
 
     function init() {
-
       for (var i = 0; i < properties.particleCount; i++) {
         particles.push(new Particle());
       }
@@ -134,16 +144,8 @@ function Animation() {
 
     init();
 
-    window.onresize = function () {
-      (w = canvas.width = document.querySelector(".main").offsetWidth),
-        (h = canvas.height = document.querySelector(".main").offsetHeight);
-    };
 
-
-    return () => (window.onresize = false);
-
-  
-  }, [theme]);
+  }, [theme, boundingRect]);
 
   return <canvas className="canvas" ref={canvasRef}></canvas>;
 }
