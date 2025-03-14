@@ -1,11 +1,14 @@
 import { useEffect } from "react";
 import { useRef } from "react";
 import { useThemeContext } from "../../context/ThemeContext";
+import useResizeObserver from '../../utils/useResizeObserver'
 import "./Animation.css";
 
-function Animation({ rootElem, boundingRect}) {
+function Animation() {
   const canvasRef = useRef(null);
+  const [wraperRef, rect] = useResizeObserver();
   const [theme, setThem] = useThemeContext();
+  console.log('anim')
 
 
   useEffect(() => {
@@ -25,21 +28,19 @@ function Animation({ rootElem, boundingRect}) {
     let innerWidth;
     let innerHeight;
 
-    if (rootElem.current) {
-      innerWidth = rootElem.current.offsetWidth;
-      innerHeight = rootElem.current.offsetHeight;
+    if (wraperRef.current) {
+      innerWidth = wraperRef.current.offsetWidth;
+      innerHeight = wraperRef.current.offsetHeight;
     }
 
     let ctx = canvas.getContext("2d"),
       w = (canvas.width = innerWidth),
       h = (canvas.height = innerHeight);
 
-    if (boundingRect) {
-      (w = canvas.width = rootElem.current.offsetWidth),
-      (h = canvas.height = rootElem.current.offsetHeight);
+    if (rect) {
+      (w = canvas.width = wraperRef.current.offsetWidth),
+        (h = canvas.height = wraperRef.current.offsetHeight);
     }
-
-
 
     class Particle {
       constructor() {
@@ -143,11 +144,13 @@ function Animation({ rootElem, boundingRect}) {
     }
 
     init();
+  }, [theme, rect]);
 
-
-  }, [theme, boundingRect]);
-
-  return <canvas className="canvas" ref={canvasRef}></canvas>;
+  return (
+    <div ref={wraperRef} className="wrapper-anim">
+      <canvas className="canvas" ref={canvasRef}></canvas>
+    </div>
+  );
 }
 
 export default Animation;

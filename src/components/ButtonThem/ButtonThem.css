@@ -6,7 +6,7 @@
    display: block;
    width: 60px;
    height: 30px;
-   background: #ccc;
+   background: #b5b5b5;
    border-radius: 30px;
    position: relative;
    cursor: pointer;
@@ -15,11 +15,13 @@
 
 .toggle-label:before {
    content: '';
+   background-image: url(../../img/dark.png);
+   background-repeat: no-repeat;
+   background-size: cover;
    position: absolute;
    width: 26px;
    height: 26px;
    border-radius: 50%;
-   background: white;
    top: 2px;
    left: 2px;
    transition: transform 0.3s;
@@ -40,6 +42,7 @@
 
 #theme-toggle:checked + .toggle-label:before {
    transform: translateX(30px);
+   background-image: url(../../img/light.png);
 }
 
 

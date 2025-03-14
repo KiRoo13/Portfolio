@@ -26,5 +26,8 @@
    color: var(--black);
    text-decoration: none;
 }
+.logo {
+   width: 50px;
+}
 
 
