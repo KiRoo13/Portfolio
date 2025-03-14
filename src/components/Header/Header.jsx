@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import logo from '../../img/logo.png'
 import "./Header.css";
 import ButtonThem from "../ButtonThem/ButtonThem";
 
@@ -12,7 +13,9 @@ function Header() {
       <div className="conteiner">
         <div className="header-content">
           <div className="header-logo">
-            <NavLink to={"/"}>LOGO</NavLink>
+            <NavLink to={"/"}>
+               <img className="logo" src={logo} alt="logo" />
+            </NavLink>
           </div>
           <nav className="header-nav">
             <ul>

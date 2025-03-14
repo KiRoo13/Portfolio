@@ -38,5 +38,5 @@ body[data-theme='dark'] .project-item {
 }
 
 body[data-theme='dark'] .project-item-img  {
-   background-color: rgb(26, 26, 26);
+   background-color: rgb(34 34 34 / 1);
 }

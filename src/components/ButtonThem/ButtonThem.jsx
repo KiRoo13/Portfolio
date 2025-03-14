@@ -17,7 +17,7 @@ useEffect(()=> {
   return (
     <div>
       <div className="theme-switcher">
-        <input onChange={toggleTheme} type="checkbox" id="theme-toggle" />
+        <input onClick={toggleTheme} type="checkbox" id="theme-toggle" />
         <label className="toggle-label"></label>
       </div>
     </div>
