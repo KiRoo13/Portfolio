@@ -1,0 +1,8 @@
+.contacts-content {
+   padding-top: 50px;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   column-gap: 30px;
+}
+

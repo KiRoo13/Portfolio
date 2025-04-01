@@ -1,24 +1,29 @@
 .home-content {
    display: flex;
+   /* flex-wrap: wrap; */
    align-items: center;
    justify-content: center;
+   column-gap: 10px;
 }
-.about-mi{
-   width: 50%;
+.about-mi {
+   width: 550px;
    height: 600px;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
    border: 1px solid var(--accentColor);
    border-radius: 20px;
 }
 
-.about-mi {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-}
+
 .about-mi__subtitle {
    text-align: center;
 }
 .about-mi__list {
    align-self: flex-start;
+}
+.anim {
+   position: relative;
 }
 

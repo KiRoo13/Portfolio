@@ -5,12 +5,7 @@ function Footer() {
     <footer className="footer">
       <div className="conteiner">
         <div className="footer-content">
-          <div className="footer-logo">LOGO</div>
-          <nav className="footer-nav">
-            <ul>
-               <li>1</li>
-            </ul>
-          </nav>
+            <p>@Rodionov Inc</p>
         </div>
       </div>
     </footer>
