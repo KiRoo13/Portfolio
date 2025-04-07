@@ -6,5 +6,64 @@
    width: 100%;
 }
 .discription {
-   text-align: center;
+   padding: 15px 0;
+}
+.features-list {
+   list-style-type: none;
+   padding: 0;
+}
+.features-list li::before {
+  content: '✓';
+  margin-right: 10px;
+  font-size: 18px;
+}
+.skils {
+   padding: 15px 0;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.technologies {
+   padding: 10px 20px;
+   border-radius: 20px;
+   background-color: var(--black);
+   color: var(--white);
+}
+.project-links {
+   padding: 15px 0;
+   display: flex;
+   align-items: center;
+   justify-content: start;
+   column-gap: 20px;
+}
+.project-links a {
+   padding: 10px 20px;
+   border: 1px solid var(--accentColor);
+   border-radius: 10px;
+   background-color: var(--black);
+   color: var(--accentColor);
+   transition: .4s;
+}
+.project-links a:hover {
+   cursor: pointer;
+   border: 1px solid var(--white);
+   color: var(--white);
+   transition: .4s;
+}
+
+
+body[data-theme='light'] .technologies {
+   background-color: var(--white);
+   color: var(--black);
+   border: 1px solid var(--black);
+} 
+
+body[data-theme='light'] .project-links a  {
+   background-color: var(--white);
+   color: var(--black);
+   border: 1px solid var(--black);
+} 
+
+body[data-theme='light'] .project-links a:hover {
+   color: var(--accentColor);
 }

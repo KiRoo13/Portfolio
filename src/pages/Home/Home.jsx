@@ -20,6 +20,9 @@ function Home() {
               <li>Lorem, ipsum dolor.</li>
             </ul>
           </div>
+          <div className="about-mi anim">
+            <Animation/>
+          </div>
         </div>
       </div>
     </section>

@@ -1,18 +1,17 @@
 import { useEffect } from "react";
 import { useRef } from "react";
 import { useThemeContext } from "../../context/ThemeContext";
-import useResizeObserver from '../../utils/useResizeObserver'
 import "./Animation.css";
 
 function Animation() {
   const canvasRef = useRef(null);
-  const [wraperRef, rect] = useResizeObserver();
-  const [theme, setThem] = useThemeContext();
+  const [ theme ] = useThemeContext();
   console.log('anim')
 
 
   useEffect(() => {
     let canvas = canvasRef.current;
+
 
     const particles = [];
     const properties = {
@@ -25,22 +24,13 @@ function Animation() {
       particleLife: 1,
     };
 
-    let innerWidth;
-    let innerHeight;
+    let innerWidth = canvas.offsetWidth;
+    let innerHeight = canvas.offsetHeight;
 
-    if (wraperRef.current) {
-      innerWidth = wraperRef.current.offsetWidth;
-      innerHeight = wraperRef.current.offsetHeight;
-    }
 
     let ctx = canvas.getContext("2d"),
       w = (canvas.width = innerWidth),
       h = (canvas.height = innerHeight);
-
-    if (rect) {
-      (w = canvas.width = wraperRef.current.offsetWidth),
-        (h = canvas.height = wraperRef.current.offsetHeight);
-    }
 
     class Particle {
       constructor() {
@@ -128,11 +118,13 @@ function Animation() {
       }
     }
 
+    let requestID = ''
+
     function loop() {
       reDrawBackground();
       reDrawParticles();
       drawLines();
-      requestAnimationFrame(loop);
+      requestID = requestAnimationFrame(loop)
     }
 
     function init() {
@@ -144,12 +136,14 @@ function Animation() {
     }
 
     init();
-  }, [theme, rect]);
+
+    return () => {
+      window.cancelAnimationFrame(requestID)
+    }
+  }, [theme]);
 
   return (
-    <div ref={wraperRef} className="wrapper-anim">
-      <canvas className="canvas" ref={canvasRef}></canvas>
-    </div>
+    <canvas ref={canvasRef} className="canvas"></canvas>
   );
 }
 
