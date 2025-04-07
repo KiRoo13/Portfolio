@@ -2,7 +2,16 @@
    padding-top: 50px;
    display: flex;
    flex-wrap: wrap;
-   justify-content: center;
-   column-gap: 30px;
+   justify-content: space-between;
+   column-gap: 20px;
+   row-gap: 20px;
+}
+
+@media (max-width: 1000px) {
+   .contacts-content {
+      flex-direction: column;
+      row-gap: 20px;
+      align-items: center;
+   }
 }
 

@@ -25,9 +25,16 @@ body[data-theme='dark'] {
 }
 .main {
    flex-grow: 1;
-   /* background: url('./img/fon.webp') no-repeat center center/cover; */
    background: linear-gradient(0deg, var(--accentColor) , var(--black) 50%);
+   background-size: 100% 200%;
+   animation: fire 10s ease infinite; 
+    
 
+}
+
+body[data-theme='light'] .main {
+   background: linear-gradient(0deg, var(--accentColor) , var(--white) 50%);
+   animation: fire 10s ease infinite; 
 }
 
 .conteiner {
@@ -38,4 +45,17 @@ body[data-theme='dark'] {
 .section {
    width: 100%;
    padding: 30px 0;
+}
+
+
+@keyframes fire {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 0% 60%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }

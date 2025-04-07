@@ -10,3 +10,9 @@
    flex-wrap: wrap;
    row-gap: 30px;
 }
+
+@media (max-width: 768px) {
+   .wrapper-projects {
+      justify-content: center;
+   }
+}

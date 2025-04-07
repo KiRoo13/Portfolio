@@ -11,7 +11,9 @@ function ProjectItem({ project }) {
           </div>
         </div>
         <div className="project-item__footer">
-          <p>{project.title}</p>
+          <h2 className="project-title">{project.title}</h2>
+          <p className="project-description">{project.description}</p>
+          <button className="project-button">Подробнее</button>
         </div>
       </div>
     </NavLink>

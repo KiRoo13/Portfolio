@@ -11,7 +11,7 @@ function Animation() {
 
   useEffect(() => {
     let canvas = canvasRef.current;
-    console.log(canvas.offsetWidth)
+
 
     const particles = [];
     const properties = {
@@ -27,19 +27,10 @@ function Animation() {
     let innerWidth = canvas.offsetWidth;
     let innerHeight = canvas.offsetHeight;
 
-    // if (wraperRef.current) {
-    //   innerWidth = wraperRef.current.offsetWidth;
-    //   innerHeight = wraperRef.current.offsetHeight;
-    // }
 
     let ctx = canvas.getContext("2d"),
       w = (canvas.width = innerWidth),
       h = (canvas.height = innerHeight);
-
-    // if (rect) {
-    //   (w = canvas.width = wraperRef.current.offsetWidth),
-    //     (h = canvas.height = wraperRef.current.offsetHeight);
-    // }
 
     class Particle {
       constructor() {
@@ -127,11 +118,13 @@ function Animation() {
       }
     }
 
+    let requestID = ''
+
     function loop() {
       reDrawBackground();
       reDrawParticles();
       drawLines();
-      requestAnimationFrame(loop);
+      requestID = requestAnimationFrame(loop)
     }
 
     function init() {
@@ -143,6 +136,10 @@ function Animation() {
     }
 
     init();
+
+    return () => {
+      window.cancelAnimationFrame(requestID)
+    }
   }, [theme]);
 
   return (

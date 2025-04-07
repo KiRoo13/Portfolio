@@ -14,7 +14,7 @@ function Header() {
         <div className="header-content">
           <div className="header-logo">
             <NavLink to={"/"}>
-               <img className="logo" src={logo} alt="logo" />
+              Rodionov
             </NavLink>
           </div>
           <nav className="header-nav">

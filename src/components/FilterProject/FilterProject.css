@@ -1,4 +1,51 @@
 .filter {
-   display: flex;
-   column-gap: 30px;
+   width: 150px;
+   position: relative;
 }
+
+.filter::after {
+   content: "▼";
+   position: absolute;
+   top: 50%;
+   right: 15px;
+   transform: translateY(-50%);
+   color: var(--accentColor);
+   pointer-events: none;
+ }
+
+select {
+   width: 100%;
+   padding: 12px;
+   border: 2px solid var(--accentColor);
+   border-radius: 8px;
+   background-color: #f8f9fa;
+   font-family: 'Arial', sans-serif;
+   font-size: 16px;
+   color: #333;
+   cursor: pointer;
+   appearance: none; 
+   outline: none;
+   transition: border-color 0.3s ease;
+}
+
+select:hover {
+   border-color: var(--accentColor / .5);
+ }
+ 
+ select:focus {
+   border-color: var(--accentColor);
+   box-shadow: 0 0 8px var(--accentColor);
+ }
+
+
+select > option {
+   padding: 12px;
+   background-color: var(--white);
+   color:  var(--black);
+   font-size: 14px;
+ }
+ 
+select option:checked {
+   background-color: var(--accentColor);
+   color: white;
+ }

@@ -29,3 +29,22 @@
  .contact-info a {
    color: var(--white);
  }
+
+ body[data-theme='light'] .contact-info a {
+   color: var(--black);
+ }
+
+ body[data-theme='light'] .contact-card  {
+   background-color: var(--white);
+   color: var(--black);
+   border: 1px solid var(--accentColor);
+ }
+
+ @media (max-width: 1000px) {
+   .contact-card  {
+     width: 90%;
+     flex-basis: 200px;
+   }
+}
+
+ 
