@@ -1,5 +1,4 @@
 .project-info {
-   width: 600px;
    margin: 0 auto;
 }
 .img-info {
@@ -20,8 +19,9 @@
 .skils {
    padding: 15px 0;
    display: flex;
-   justify-content: space-between;
+   justify-content: start;
    align-items: center;
+   column-gap: 20px;
 }
 .technologies {
    padding: 10px 20px;
@@ -66,4 +66,12 @@ body[data-theme='light'] .project-links a  {
 
 body[data-theme='light'] .project-links a:hover {
    color: var(--accentColor);
+}
+
+
+@media (max-width: 650px)  {
+   .technologies {
+      padding: 10px 10px;
+      font-size: 12px;
+   }
 }

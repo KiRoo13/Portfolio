@@ -1,0 +1,24 @@
+.active-link {
+   text-decoration: underline;
+   color: var(--accentColor);
+   font-weight: 500;
+}
+
+.link {
+   color: var(--black);
+   text-decoration: none;
+}
+.mob-link {
+   color: var(--white);
+   text-decoration: none;
+}
+.mob-list {
+   display: flex;
+   flex-direction: column;
+   row-gap: 30px;
+}
+
+
+body[data-theme='light'] .mob-link{
+   color: var(--black);
+} 

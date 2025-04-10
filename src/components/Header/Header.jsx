@@ -1,11 +1,16 @@
+import { useWindowSize } from "../../helpers/useWindowSize";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import logo from '../../img/logo.png'
+import ButtonBurger from "../ButtonBurger/ButtonBurger";
+import Nav from "../Nav/Nav";
 import "./Header.css";
-import ButtonThem from "../ButtonThem/ButtonThem";
 
 function Header() {
-  const activeClass = (isActive) => {
-    return isActive ? "active-link" : "link";
+  const [width] = useWindowSize();
+  const [flagMenu, setFlagMenu] = useState(false);
+
+  const openAndCloseMenu = () => {
+    setFlagMenu((prev) => !prev);
   };
 
   return (
@@ -13,39 +18,18 @@ function Header() {
       <div className="conteiner">
         <div className="header-content">
           <div className="header-logo">
-            <NavLink to={"/"}>
+            <NavLink className="link" to={"/"}>
               Rodionov
             </NavLink>
           </div>
           <nav className="header-nav">
-            <ul>
-              <li className="list-item">
-                <NavLink
-                  className={({ isActive }) => activeClass(isActive)}
-                  to={"/"}
-                >
-                  HOME
-                </NavLink>
-              </li>
-              <li className="list-item">
-                <NavLink
-                  className={({ isActive }) => activeClass(isActive)}
-                  to={"/projects"}
-                >
-                  PROJECTS
-                </NavLink>
-              </li>
-              <li className="list-item">
-                <NavLink
-                  className={({ isActive }) => activeClass(isActive)}
-                  to={"/contacts"}
-                >
-                  CONTACTS
-                </NavLink>
-              </li>
-            </ul>
+            {width < 600 ? <ButtonBurger handle={openAndCloseMenu}/> : <Nav />}
           </nav>
-          <ButtonThem/>
+          {flagMenu && width < 600 && (
+            <div className="mob-menu">
+              <Nav flagMenu={flagMenu} />
+            </div>
+          )}
         </div>
       </div>
     </header>

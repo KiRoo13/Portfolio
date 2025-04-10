@@ -1,0 +1,7 @@
+.burger-btn {
+   border: none;
+   background: none;
+}
+.burger-btn:hover {
+   cursor: pointer;
+}
