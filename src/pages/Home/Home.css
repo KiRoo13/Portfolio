@@ -39,6 +39,7 @@
 @media (max-width: 600px)  {
    .about-mi {
       width: 300px;
+      padding: 10px;
    }
 }
 

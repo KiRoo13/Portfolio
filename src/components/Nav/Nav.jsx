@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import ButtonThem from "../ButtonThem/ButtonThem";
 import "./Nav.css";
 
-function Nav({ flagMenu }) {
+function Nav({ flagMenu, openAndCloseMenu = null }) {
   const activeClass = (isActive) => {
    if (isActive) {
       return "active-link"
@@ -21,12 +21,12 @@ function Nav({ flagMenu }) {
     <>
       <ul className={toggleClass()}>
         <li className="list-item">
-          <NavLink className={({ isActive }) => activeClass(isActive)} to={"/"}>
+          <NavLink onClick={openAndCloseMenu} className={({ isActive }) => activeClass(isActive)} to={"/"}>
             HOME
           </NavLink>
         </li>
         <li className="list-item">
-          <NavLink
+          <NavLink onClick={openAndCloseMenu}
             className={({ isActive }) => activeClass(isActive)}
             to={"/projects"}
           >
@@ -34,7 +34,7 @@ function Nav({ flagMenu }) {
           </NavLink>
         </li>
         <li className="list-item">
-          <NavLink
+          <NavLink onClick={openAndCloseMenu}
             className={({ isActive }) => activeClass(isActive)}
             to={"/contacts"}
           >

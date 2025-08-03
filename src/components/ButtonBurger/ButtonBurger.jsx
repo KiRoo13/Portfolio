@@ -1,9 +1,9 @@
 import './ButtonBurger.css'
 
 
- function ButtonBurger({ handle }) {
+ function ButtonBurger({ openAndCloseMenu }) {
   return (
-    <button className="burger-btn" onClick={handle}>
+    <button className="burger-btn" onClick={openAndCloseMenu}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"

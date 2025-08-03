@@ -23,11 +23,11 @@ function Header() {
             </NavLink>
           </div>
           <nav className="header-nav">
-            {width < 600 ? <ButtonBurger handle={openAndCloseMenu}/> : <Nav />}
+            {width < 600 ? <ButtonBurger openAndCloseMenu={openAndCloseMenu}/> : <Nav />}
           </nav>
           {flagMenu && width < 600 && (
             <div className="mob-menu">
-              <Nav flagMenu={flagMenu} />
+              <Nav flagMenu={flagMenu} openAndCloseMenu={openAndCloseMenu} />
             </div>
           )}
         </div>
