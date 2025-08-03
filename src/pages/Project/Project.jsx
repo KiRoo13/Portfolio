@@ -7,6 +7,7 @@ import "./Project.css";
 function Project() {
   const { id } = useParams();
   const [ project ]  = projectsList.filter((project) => project.id === Number(id))
+ 
 
 
   return (

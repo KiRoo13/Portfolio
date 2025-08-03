@@ -58,6 +58,6 @@ body[data-theme='light'] .project-item__footer {
 } 
 @media (max-width: 500px) {
    .project-item  {
-      width: 300px;
+      width: 330px;
    }
 }

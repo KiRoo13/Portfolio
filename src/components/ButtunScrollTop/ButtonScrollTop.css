@@ -12,3 +12,10 @@
    cursor: pointer;
 }
 
+
+@media (max-width: 650px)  {
+   .button-top {
+      display: none;
+   }
+}
+
